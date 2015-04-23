@@ -14,6 +14,14 @@ if (Meteor.isClient) {
       Session.set('counter', Session.get('counter') + 1);
     }
   });
+
+  //Router code
+Router.map( function () {
+  this.route('Forgot Password', {
+  path : "/forgotpassword.html"  
+});
+});
+
 }
 
 if (Meteor.isServer) {
@@ -21,3 +29,5 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
+
+
