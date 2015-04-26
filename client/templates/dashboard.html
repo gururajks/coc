@@ -5,70 +5,34 @@
 		<div class="col-md-12 column">
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
-					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
+						 <span class="sr-only">Toggle navigation</span>
+						 <span class="icon-bar"></span><span class="icon-bar"></span>
+						 <span class="icon-bar"></span>
+					 </button> 
+					 <a class="navbar-brand" href="{{pathFor 'main'}}">
+						<img class="img-responsive" src="pp.jpg" alt="COC" style="height:100%">
+					 </a>
 				</div>
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active">
-							<a href="#">Link</a>
+							<a href="{{pathFor 'main'}}">Profile</a>
 						</li>
 						<li>
-							<a href="#">Link</a>
+							<a href="{{pathFor 'war'}}">War</a>
 						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#">Action</a>
-								</li>
-								<li>
-									<a href="#">Another action</a>
-								</li>
-								<li>
-									<a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									<a href="#">Separated link</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									<a href="#">One more separated link</a>
-								</li>
-							</ul>
+						<li>
+							<a href="{{pathFor 'clan'}}">Clan</a>
 						</li>
+						
 					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" />
-						</div> <button type="submit" class="btn btn-default">Submit</button>
-					</form>
+					<!-- RIght top bar -->
 					<ul class="nav navbar-nav navbar-right">
 						<li>
 							<a class="logout" href="#">Log Out</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#">Action</a>
-								</li>
-								<li>
-									<a href="#">Another action</a>
-								</li>
-								<li>
-									<a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									<a href="#">Separated link</a>
-								</li>
-							</ul>
-						</li>
+						</li>						
 					</ul>
 				</div>
 				
@@ -86,85 +50,93 @@
 						</p>
 						<p>
 							clan. We are very serious about the people who join us.
-						</p> <small>Namma Bangalore</small>
+						</p> <small>Namma Bangalore COC</small>
 					</blockquote>
-					<div class="row clearfix">
-						<div class="col-md-6 column">
-							<form role="form">
+					<div class="row clearfix">						
+						<form role="form">
+							<div class="col-md-6 column">
 								<div class="form-group">
-									 <label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" />
+									 <label for="membername">Member Name</label><input type="text" class="form-control" id="membername" />
 								</div>
 								<div class="form-group">
-									 <label for="exampleInputPassword1">Password</label><input type="password" class="form-control" id="exampleInputPassword1" />
+									 <label for="clanname">Clan Name</label><input type="text" class="form-control" id="clanname" />
 								</div>
 								<div class="form-group">
-									 <label for="exampleInputFile">File input</label><input type="file" id="exampleInputFile" />
-									<p class="help-block">
-										Example block-level help text here.
-									</p>
+									 <label for="phone">Phone Number</label><input type="tel" class="form-control" id="phone" />
 								</div>
-								<div class="checkbox">
-									 <label><input type="checkbox" /> Check me out</label>
-								</div> <button type="submit" class="btn btn-default">Submit</button>
-							</form>
-							<div class="row clearfix">
-								<div class="col-md-6 column">
-									<div class="btn-group">
-										 <button class="btn btn-default">Action</button> <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="#">Action</a>
-											</li>
-											<li class="disabled">
-												<a href="#">Another action</a>
-											</li>
-											<li class="divider">
-											</li>
-											<li>
-												<a href="#">Something else here</a>
-											</li>
-										</ul>
+								<div class="form-group">
+									 <label for="phone">Email</label><input type="email" class="form-control" id="email" />
+								</div>		
+								<div class="row clearfix">
+									<div class="col-md-6 column">
+											<label for="form-control"> Trophy Count </label>
+											<select class="form-control" id="trophycount">
+												<option>
+													1200-1399
+												</option>
+												<option>
+													1400-1599
+												</option>
+												<option>
+													1600-1799
+												</option>
+												<option>
+													1800-1999
+												</option>
+												<option>
+													2000-2199
+												</option>
+												<option>
+													2200-2399
+												</option>
+												<option>
+													2400-2599
+												</option>										
+											</select>
 									</div>
-								</div>
-								<div class="col-md-6 column">
-									<div class="btn-group">
-										 <button class="btn btn-default">Action</button> <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="#">Action</a>
-											</li>
-											<li class="disabled">
-												<a href="#">Another action</a>
-											</li>
-											<li class="divider">
-											</li>
-											<li>
-												<a href="#">Something else here</a>
-											</li>
-										</ul>
+									<div class="col-md-6 column">
+										<label for="form-control"> XP </label>
+											<select class="form-control" id="xp">
+												<option>
+													40-59
+												</option>
+												<option>
+													60-79
+												</option>
+												<option>
+													80-99
+												</option>
+												<option>
+													100-119
+												</option>	
+												<option>
+													120-140
+												</option>											
+											</select>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-6 column">
-							<form role="form">
-								<div class="form-group">
-									 <label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" />
+							<div class="col-md-6 column">
+								<label>Troops</label>
+								<div class="form-group">																			
+									
+									{{#each troops.units}}
+										<div class="input-group">
+										<strong>{{unit}}</strong>
+										<span class="input-group-addon">											
+										{{#each troops.indices}}
+											<label class="radio-inline">
+												<input type="radio" name="{{../unit}}{{index}}" value="{{../unit}}{{index}}">{{index}}
+											</label>
+										{{/ each}}
+										</span>
+										</div><!-- /input-group -->
+									{{/each}}									
+									
 								</div>
-								<div class="form-group">
-									 <label for="exampleInputPassword1">Password</label><input type="password" class="form-control" id="exampleInputPassword1" />
-								</div>
-								<div class="form-group">
-									 <label for="exampleInputFile">File input</label><input type="file" id="exampleInputFile" />
-									<p class="help-block">
-										Example block-level help text here.
-									</p>
-								</div>
-								<div class="checkbox">
-									 <label><input type="checkbox" /> Check me out</label>
-								</div> <button type="submit" class="btn btn-default">Submit</button>
-							</form>
-						</div>
+								<button type="submit" class="btn btn-default">Submit</button>								
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
