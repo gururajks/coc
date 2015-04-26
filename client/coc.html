@@ -1,7 +1,8 @@
 <head>
-  <title>coc</title>
-<style>
-body {
+  <title>Namma Bangalore</title>
+  <link rel="stylesheet" href = "coc.css" type="text/css"  />
+  <style>
+  	body {
 	background: #eee !important;	
 }
 
@@ -9,7 +10,7 @@ body {
 	margin-top: 80px;
   margin-bottom: 80px;
 }
-
+	
 .form-signin {
   max-width: 380px;
   padding: 15px 35px 45px;
@@ -17,8 +18,7 @@ body {
   background-color: #fff;
   border: 1px solid rgba(0,0,0,0.1);  
 
-  .form-signin-heading,
-	.checkbox {
+  .form-signin-heading, .checkbox {
 	  margin-bottom: 30px;
 	}
 
@@ -50,15 +50,11 @@ body {
 	  border-top-right-radius: 0;
 	}
 }
-
-</style>
+  </style>
 </head>
 
-<body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
- <div class="wrapper">
+<template name="home">
+	 <div class="wrapper">
     <form class="form-signin">       
       <h2 class="form-signin-heading">Please login</h2>
       <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
@@ -66,15 +62,11 @@ body {
       <label class="checkbox">
         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
       </label>
+      <label><a href ="{{pathFor 'forgotpassword'}}"> Forgot Password </a>
+      </label>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
     </form>
   </div>
-  <a href ="{{pathFor 'Forgot Password'}}"> Forgot Password </a>
-</body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
 </template>
 
 
