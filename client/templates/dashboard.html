@@ -48,7 +48,7 @@
 					</form>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="#">Link</a>
+							<a class="logout" href="#">Log Out</a>
 						</li>
 						<li class="dropdown">
 							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
@@ -76,6 +76,11 @@
 			<div class="row clearfix">
 				<div class="col-md-12 column">
 					<blockquote>
+						
+						{{#if currentUser}}
+      						<p>{{username}} is logged in</p>
+      					{{/if}}
+						
 						<p>
 							We take our clan very seriously. Make sure you have read the terms and conditions before you join our
 						</p>

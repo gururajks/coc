@@ -10,3 +10,6 @@ insecure
 iron:router
 jquery
 mizzao:bootstrap-3
+accounts-base
+accounts-password
+chrismbeckett:toastr
