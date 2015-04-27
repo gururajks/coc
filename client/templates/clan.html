@@ -16,14 +16,14 @@
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active">
+						<li>
 							<a href="{{pathFor 'main'}}">Profile</a>
 						</li>
 						<li>
-							<a href="{{pathFor 'war'}}">War</a>
+							<a href="{{pathFor 'clan'}}">Clan</a>
 						</li>
 						<li>
-							<a href="{{pathFor 'clan'}}">Clan</a>
+							<a href="{{pathFor 'war'}}">War</a>
 						</li>
 					</ul>
 					<!-- RIght top bar -->
@@ -37,18 +37,24 @@
 			</nav>
 			
 		</div>
-		<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="jumbotron">
-				<h1>
-					COMING SOON
-				</h1>
-				<p>
-					Under Development. If you want to help, Contact Guru
-				</p>
-			</div>
+		
+	</div>
+	<div class="col-md-4 column">
+		<div class="list-group">
+			{{#each members}}
+				<a class="list-group-item" href="#">
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					{{email}}
+				</a>
+			{{/ each}}
 		</div>
 	</div>
+	<div class="col-md-4 column">
+		
 	</div>
+	<div class="col-md-4 column">
+		
+	</div>
+
 </div>
 </template>

@@ -17,14 +17,14 @@
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active">
+						<li>
 							<a href="{{pathFor 'main'}}">Profile</a>
 						</li>
 						<li>
-							<a href="{{pathFor 'war'}}">War</a>
+							<a href="{{pathFor 'clan'}}">Clan</a>
 						</li>
 						<li>
-							<a href="{{pathFor 'clan'}}">Clan</a>
+							<a href="{{pathFor 'war'}}">War</a>
 						</li>
 						
 					</ul>
@@ -65,7 +65,7 @@
 									 <label for="phone">Phone Number</label><input type="tel" class="form-control" id="phone" />
 								</div>
 								<div class="form-group">
-									 <label for="phone">Email</label><input type="email" class="form-control" id="email" />
+									 <label for="phone">Email</label><input type="email" class="form-control" id="email" value="sdfds" />
 								</div>		
 								<div class="row clearfix">
 									<div class="col-md-6 column">
@@ -126,7 +126,7 @@
 										<span class="input-group-addon">											
 										{{#each troops.indices}}
 											<label class="radio-inline">
-												<input type="radio" name="{{../unit}}{{index}}" value="{{../unit}}{{index}}">{{index}}
+												<input type="radio" name="{{../unit}}" value="{{index}}">{{index}}
 											</label>
 										{{/ each}}
 										</span>
@@ -134,7 +134,7 @@
 									{{/each}}									
 									
 								</div>
-								<button type="submit" class="btn btn-default">Submit</button>								
+								<button type="submit" class="btn btn-default" id="profilesubmit">Submit</button>								
 							</div>
 						</form>
 					</div>

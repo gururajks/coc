@@ -26,6 +26,7 @@ if(Meteor.isClient) {
 					else
 					{
 						toastr.success('Account created', "Success");
+						Meteor.call("insertProfile", email);
 						Router.go('/');
 					}
 				});
