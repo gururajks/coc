@@ -3,6 +3,9 @@ if(Meteor.isClient) {
 		username:function(){			
 			return Meteor.user().emails[0].address;
 		},
+		phone : function() {
+			//return Meteor.users().find({_id: this._id})
+		}, 
 		troops : {
 			units : [
 				{unit : "Archers"}, 
@@ -50,7 +53,10 @@ if(Meteor.isClient) {
 			});
 		},
 		"submit #profilesubmit" : function(e,t) {
-			
+			e.preventDefault();
+			var phone = t.find("#phone").value;
+			var email = t.find("#email").value;
+			Meteor.call("updateProfile", email, phone);
 		}
 		
 	});

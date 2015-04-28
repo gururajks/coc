@@ -1,5 +1,6 @@
 Members = new Mongo.Collection("members");
 
+
 Meteor.methods({
 	insertProfile : function(email) {
 		Members.insert(
@@ -8,7 +9,8 @@ Meteor.methods({
 			}
 		);
 	},
-	updateProfile : function(member) {
-		
+	updateProfile : function(email, phone) {
+		var userId = Meteor.userId();
+		return Meteor.users().update({_id: userId}, {$set : {phone : phone}});
 	}
 });
