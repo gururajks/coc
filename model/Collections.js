@@ -11,6 +11,21 @@ Meteor.methods({
 	},
 	updateProfile : function(email, phone) {
 		var userId = Meteor.userId();
-		return Meteor.users().update({_id: userId}, {$set : {phone : phone}});
+		var writeResults = Meteor.users().update({_id: userId}, 
+			{$set : 
+				{
+					profile : {						
+						phone : phone
+						}
+				}
+			});
+		if(writeResults["nMatched"] == 1 && writeResults["nModified"] == 1 )
+		{
+			toastr.success("Profile updated");
+		}
+		else
+		{
+			toastr.error("Profile failed to update");
+		}
 	}
 });
