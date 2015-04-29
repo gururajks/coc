@@ -1,4 +1,43 @@
 if(Meteor.isClient) {
+	
+	var troops = {
+			units : [
+				{unit : "Archers"}, 
+				{unit : "Barbarians"},
+				{unit : "Giants"},
+				{unit : "Pekka"},
+				{unit : "Wizards"},
+				{unit : "Goblin"},
+				{unit : "Dragon"},
+				{unit : "Ballons"}, 
+				{unit : "Wall Breakers"} 				
+			],
+			darkUnits : [
+				{unit : "Minion"}, 
+				{unit : "Hogs"},
+				{unit : "Valkyrie"},
+				{unit : "Golem"},
+				{unit : "Witch"},
+				{unit : "Lava Hound"}	
+			],
+			spells : [
+				{unit : "Lightning"}, 
+				{unit : "Healing"},
+				{unit : "Rage"},  
+				{unit : "Jump"},
+				{unit : "Freeze"} 
+			],
+			indices : [
+				{index : 1},
+				{index : 2},
+				{index : 3},
+				{index : 4},
+				{index : 5},
+				{index : 6},
+				{index : 7}
+			]
+	};
+	
 	Template.dashboard.helpers({
 		username:function(){			
 			return Meteor.user().emails[0].address;
@@ -38,42 +77,8 @@ if(Meteor.isClient) {
 			{range : "2000-2199"},
 			{range : "2200-2399"}
 		],
-		troops : {
-			units : [
-				{unit : "Archers"}, 
-				{unit : "Barbarians"},
-				{unit : "Giants"},
-				{unit : "Pekka"},
-				{unit : "Wizards"},
-				{unit : "Goblin"},
-				{unit : "Dragon"},
-				{unit : "Ballons"}, 
-				{unit : "Wall Breakers"} 				
-			],
-			darkUnits : [
-				{unit : "Minion"}, 
-				{unit : "Hogs"},
-				{unit : "Valkyrie"},
-				{unit : "Golem"},
-				{unit : "Witch"},
-				{unit : "Lava Hound"}	
-			],
-			spells : [
-				{unit : "Lightning"}, 
-				{unit : "Healing"},
-				{unit : "Rage"},  
-				{unit : "Jump"},
-				{unit : "Freeze"} 
-			],
-			indices : [
-				{index : 1},
-				{index : 2},
-				{index : 3},
-				{index : 4},
-				{index : 5},
-				{index : 6},
-				{index : 7}
-			]
+		troops : function() {
+			return troops;			
 		}
 		
 	});
@@ -92,6 +97,11 @@ if(Meteor.isClient) {
 			var clanName = t.find("#clanName").value;
 			var xp = t.find("#xp option:selected").text;
 			var trophyCount = t.find("#trophyCount option:selected").text;
+			for(var i in troops.units) {
+				var unit = (troops.units[i].unit);
+				var troopLvl = t.find("input:radio[name=" + unit + "]:checked").value;
+				console.log(troopLvl);
+			}
 			var member = {
 				memberName 	 : 	memberName,
 				clanName 	 : 	clanName,
@@ -100,6 +110,7 @@ if(Meteor.isClient) {
 				xp		 	 :  xp,	
 				trophyCount  :  trophyCount			
 			};
+			
 			Meteor.call("updateProfile", member, function(err, writeResults) {
 					if(writeResults == 1)
 					{
