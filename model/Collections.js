@@ -19,7 +19,8 @@ Meteor.methods({
 								clanName 	: member.clanName,									
 								phone 		: member.phone,
 								xp			: member.xp,
-								trophyCount	: member.trophyCount
+								trophyCount	: member.trophyCount,
+								troopLvl 	: member.troopLvl
 							  }
 				}
 			});

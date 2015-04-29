@@ -97,10 +97,10 @@ if(Meteor.isClient) {
 			var clanName = t.find("#clanName").value;
 			var xp = t.find("#xp option:selected").text;
 			var trophyCount = t.find("#trophyCount option:selected").text;
+			var troopLvl = {};
 			for(var i in troops.units) {
 				var unit = (troops.units[i].unit);
-				var troopLvl = t.find("input:radio[name=" + unit + "]:checked").value;
-				console.log(troopLvl);
+				troopLvl[unit] = t.find("input:radio[name='" + unit + "']:checked").value;						
 			}
 			var member = {
 				memberName 	 : 	memberName,
@@ -108,9 +108,11 @@ if(Meteor.isClient) {
 				email 	 	 : 	email,
 				phone 	 	 : 	phone,
 				xp		 	 :  xp,	
-				trophyCount  :  trophyCount			
+				trophyCount  :  trophyCount,
+				troopLvl	 :  troopLvl		
 			};
 			
+			console.log(member);
 			Meteor.call("updateProfile", member, function(err, writeResults) {
 					if(writeResults == 1)
 					{
