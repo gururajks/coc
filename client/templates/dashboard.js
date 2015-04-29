@@ -64,14 +64,15 @@ if(Meteor.isClient) {
 			var email = t.find("#email").value;
 			var memberName = t.find("#memberName").value;
 			var clanName = t.find("#clanName").value;
-			//var xpIndex = t.find("")
+			var xp = t.find("#xp option:selected").text;
+			var trophyCount = t.find("#trophyCount option:selected").text;
 			var member = {
 				memberName 	 : 	memberName,
 				clanName 	 : 	clanName,
 				email 	 	 : 	email,
 				phone 	 	 : 	phone,
-				xp		 	 :  {index : 0 , value : 3 },	
-				troopLvl 	 :  {index : 0 , value : 3}				
+				xp		 	 :  xp,	
+				trophyCount  :  trophyCount			
 			};
 			Meteor.call("updateProfile", member, function(err, writeResults) {
 					if(writeResults == 1)
