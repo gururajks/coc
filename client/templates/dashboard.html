@@ -71,47 +71,21 @@
 									<div class="col-md-6 column">
 											<label for="form-control"> Trophy Count </label>
 											<select class="form-control" id="trophyCount">
-												<option>
-													1200-1399
-												</option>
-												<option>
-													1400-1599
-												</option>
-												<option>
-													1600-1799
-												</option>
-												<option>
-													1800-1999
-												</option>
-												<option>
-													2000-2199
-												</option>
-												<option>
-													2200-2399
-												</option>
-												<option>
-													2400-2599
-												</option>										
+												{{#each trophyCountRange}}
+													<option {{trophyCount range}}>
+														{{range}}
+													</option>
+												{{/ each}}											
 											</select>
 									</div>
 									<div class="col-md-6 column">
 										<label for="form-control"> XP </label>
 											<select class="form-control" id="xp">
-												<option>
-													40-59
-												</option>
-												<option>
-													60-79
-												</option>
-												<option>
-													80-99
-												</option>
-												<option>
-													100-119
-												</option>	
-												<option>
-													120-140
-												</option>											
+												{{#each xpRange}}
+													<option {{xp range}}>
+														{{range}}
+													</option>
+												{{/ each}}										
 											</select>
 									</div>
 								</div>

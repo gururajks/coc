@@ -12,6 +12,32 @@ if(Meteor.isClient) {
 		clanName : function() {
 			return Meteor.user().profile.clanName;
 		},
+		trophyCount : function(range) {
+			if( Meteor.user().profile.trophyCount == range) {
+				return "selected";
+			} 
+		},
+		xp : function(range) {
+			if( Meteor.user().profile.xp == range) {
+				return "selected";
+			} 
+		},
+		xpRange : [
+			{range : "40-59"},
+			{range : "60-79"},
+			{range : "80-99"},
+			{range : "100-119"},
+			{range : "120-139"}
+		],
+		trophyCountRange : [
+			{range : "1000-1199"},
+			{range : "1200-1399"},
+			{range : "1400-1599"},
+			{range : "1600-1799"},
+			{range : "1800-1999"},
+			{range : "2000-2199"},
+			{range : "2200-2399"}
+		],
 		troops : {
 			units : [
 				{unit : "Archers"}, 
