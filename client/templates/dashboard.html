@@ -56,13 +56,13 @@
 						<form role="form">
 							<div class="col-md-6 column">
 								<div class="form-group">
-									 <label for="membername">Member Name</label><input type="text" class="form-control" id="membername" />
+									 <label for="membername">Member Name</label><input type="text" class="form-control" id="memberName" value = "{{memberName}}"/>
 								</div>
 								<div class="form-group">
-									 <label for="clanname">Clan Name</label><input type="text" class="form-control" id="clanname" />
+									 <label for="clanname">Clan Name</label><input type="text" class="form-control" id="clanName" value = "{{clanName}}"/>
 								</div>
 								<div class="form-group">
-									 <label for="phone">Phone Number</label><input type="tel" class="form-control" id="phone" />
+									 <label for="phone">Phone Number</label><input type="tel" class="form-control" id="phone" value="{{phone}}"/>
 								</div>
 								<div class="form-group">
 									 <label for="phone">Email</label><input type="email" class="form-control" id="email" value="{{username}}" />
@@ -134,7 +134,7 @@
 									{{/each}}									
 									
 								</div>
-								<button type="submit" class="btn btn-default" id="profilesubmit">Submit</button>								
+								<input type="submit" class="btn btn-default" id="profilesubmit" value="Submit" >								
 							</div>
 						</form>
 					</div>

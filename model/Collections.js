@@ -9,23 +9,18 @@ Meteor.methods({
 			}
 		);
 	},
-	updateProfile : function(email, phone) {
+	updateProfile : function(member) {
 		var userId = Meteor.userId();
-		var writeResults = Meteor.users().update({_id: userId}, 
+		var writeResults = Meteor.users.update({_id: userId}, 
 			{$set : 
 				{
-					profile : {						
-						phone : phone
-						}
+					profile : {					
+								memberName	: member.memberName,
+								clanName 	: member.clanName,									
+								phone 		: member.phone
+							  }
 				}
 			});
-		if(writeResults["nMatched"] == 1 && writeResults["nModified"] == 1 )
-		{
-			toastr.success("Profile updated");
-		}
-		else
-		{
-			toastr.error("Profile failed to update");
-		}
+		return writeResults;
 	}
 });

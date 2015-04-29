@@ -10,6 +10,5 @@ if(Meteor.isClient) {
 			});
 			return email;
 		}
-	});
-	
+	});	
 }

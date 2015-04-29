@@ -4,8 +4,14 @@ if(Meteor.isClient) {
 			return Meteor.user().emails[0].address;
 		},
 		phone : function() {
-			//return Meteor.users().find({_id: this._id})
+			return Meteor.user().profile.phone;
 		}, 
+		memberName : function() {
+			return Meteor.user().profile.memberName;
+		},
+		clanName : function() {
+			return Meteor.user().profile.clanName;
+		},
 		troops : {
 			units : [
 				{unit : "Archers"}, 
@@ -52,11 +58,31 @@ if(Meteor.isClient) {
 				toastr.success("Logged Out");
 			});
 		},
-		"submit #profilesubmit" : function(e,t) {
+		"submit form" : function(e,t) {
 			e.preventDefault();
 			var phone = t.find("#phone").value;
 			var email = t.find("#email").value;
-			Meteor.call("updateProfile", email, phone);
+			var memberName = t.find("#memberName").value;
+			var clanName = t.find("#clanName").value;
+			//var xpIndex = t.find("")
+			var member = {
+				memberName 	 : 	memberName,
+				clanName 	 : 	clanName,
+				email 	 	 : 	email,
+				phone 	 	 : 	phone,
+				xp		 	 :  {index : 0 , value : 3 },	
+				troopLvl 	 :  {index : 0 , value : 3}				
+			};
+			Meteor.call("updateProfile", member, function(err, writeResults) {
+					if(writeResults == 1)
+					{
+						toastr.success("Profile updated", "Success");
+					}
+					else
+					{
+						toastr.error("Profile failed to update", "Error");
+					}		
+			});
 		}
 		
 	});
