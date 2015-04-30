@@ -100,7 +100,7 @@
 										<span class="input-group-addon">											
 										{{#each troops.indices}}
 											<label class="radio-inline">
-												<input type="radio" name="{{../unit}}" value="{{index}}">{{index}}
+												<input type="radio" name="{{../unit}}" value="{{index}}" checked="{{troopLvl ../unit index}}">{{index}}
 											</label>
 										{{/ each}}
 										</span>

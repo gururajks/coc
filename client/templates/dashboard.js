@@ -61,6 +61,11 @@ if(Meteor.isClient) {
 				return "selected";
 			} 
 		},
+		troopLvl : function(unit, lvl) {
+			if(Meteor.user().profile.troopLvl && Meteor.user().profile.troopLvl[unit] == lvl) {
+				return "checked";
+			}
+		},
 		xpRange : [
 			{range : "40-59"},
 			{range : "60-79"},
@@ -100,7 +105,9 @@ if(Meteor.isClient) {
 			var troopLvl = {};
 			for(var i in troops.units) {
 				var unit = (troops.units[i].unit);
-				troopLvl[unit] = t.find("input:radio[name='" + unit + "']:checked").value;						
+				if(t.find("input:radio[name='" + unit + "']:checked")) {
+					troopLvl[unit] = t.find("input:radio[name='" + unit + "']:checked").value;
+				}						
 			}
 			var member = {
 				memberName 	 : 	memberName,
