@@ -39,30 +39,38 @@ if(Meteor.isClient) {
 	};
 	
 	Template.dashboard.helpers({
-		username:function(){			
-			return Meteor.user().emails[0].address;
+		email : function(){			
+			if(Meteor.user().emails[0].address) {
+				return Meteor.user().emails[0].address;
+			}
 		},
 		phone : function() {
-			return Meteor.user().profile.phone;
+			if(Meteor.user().profile) {
+				return Meteor.user().profile.phone;
+			}
 		}, 
 		memberName : function() {
-			return Meteor.user().profile.memberName;
+			if(Meteor.user().profile) {
+				return Meteor.user().profile.memberName;
+			}
 		},
 		clanName : function() {
-			return Meteor.user().profile.clanName;
+			if(Meteor.user().profile) {
+				return Meteor.user().profile.clanName;
+			}
 		},
 		trophyCount : function(range) {
-			if( Meteor.user().profile.trophyCount == range) {
+			if( Meteor.user().profile && Meteor.user().profile.trophyCount == range) {
 				return "selected";
 			} 
 		},
 		xp : function(range) {
-			if( Meteor.user().profile.xp == range) {
+			if( Meteor.user().profile && Meteor.user().profile.xp == range) {
 				return "selected";
 			} 
 		},
 		troopLvl : function(unit, lvl) {
-			if(Meteor.user().profile.troopLvl && Meteor.user().profile.troopLvl[unit] == lvl) {
+			if(Meteor.user().profile && Meteor.user().profile.troopLvl[unit] == lvl) {
 				return "checked";
 			}
 		},
@@ -105,6 +113,20 @@ if(Meteor.isClient) {
 			var troopLvl = {};
 			for(var i in troops.units) {
 				var unit = (troops.units[i].unit);
+				var storedLvl = t.find("input:radio[name='" + unit + "']:checked"); 
+				if(storedLvl) {
+					troopLvl[unit] = storedLvl.value;
+				}						
+			}
+			for(var i in troops.darkUnits) {
+				var unit = (troops.darkUnits[i].unit);
+				var storedLvl = t.find("input:radio[name='" + unit + "']:checked"); 
+				if(storedLvl) {
+					troopLvl[unit] = storedLvl.value;
+				}						
+			}
+			for(var i in troops.spells) {
+				var unit = (troops.spells[i].unit);
 				var storedLvl = t.find("input:radio[name='" + unit + "']:checked"); 
 				if(storedLvl) {
 					troopLvl[unit] = storedLvl.value;

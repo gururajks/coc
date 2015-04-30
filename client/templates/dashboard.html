@@ -1,121 +1,157 @@
 <template name="dashboard">
-	
+
 	<div class="container">
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
-						 <span class="sr-only">Toggle navigation</span>
-						 <span class="icon-bar"></span><span class="icon-bar"></span>
-						 <span class="icon-bar"></span>
-					 </button> 
-					 <a class="navbar-brand" href="{{pathFor 'main'}}">
-						<img class="img-responsive" src="pp.jpg" alt="COC" style="height:100%">
-					 </a>
-				</div>
-				
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li>
-							<a href="{{pathFor 'main'}}">Profile</a>
-						</li>
-						<li>
-							<a href="{{pathFor 'clan'}}">Clan</a>
-						</li>
-						<li>
-							<a href="{{pathFor 'war'}}">War</a>
-						</li>
-						
-					</ul>
-					<!-- RIght top bar -->
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a class="logout" href="#">Log Out</a>
-						</li>						
-					</ul>
-				</div>
-				
-			</nav>
-			<div class="row clearfix">
-				<div class="col-md-12 column">
-					<blockquote>
-						
-						{{#if currentUser}}
-      						<p>{{username}} is logged in</p>
-      					{{/if}}
-						
-						<p>
-							We take our clan very seriously. Make sure you have read the terms and conditions before you join our
-						</p>
-						<p>
-							clan. We are very serious about the people who join us.
-						</p> <small>Namma Bangalore COC</small>
-					</blockquote>
-					<div class="row clearfix">						
-						<form role="form">
-							<div class="col-md-6 column">
-								<div class="form-group">
-									 <label for="membername">Member Name</label><input type="text" class="form-control" id="memberName" value = "{{memberName}}"/>
-								</div>
-								<div class="form-group">
-									 <label for="clanname">Clan Name</label><input type="text" class="form-control" id="clanName" value = "{{clanName}}"/>
-								</div>
-								<div class="form-group">
-									 <label for="phone">Phone Number</label><input type="tel" class="form-control" id="phone" value="{{phone}}"/>
-								</div>
-								<div class="form-group">
-									 <label for="phone">Email</label><input type="email" class="form-control" id="email" value="{{username}}" />
-								</div>		
-								<div class="row clearfix">
-									<div class="col-md-6 column">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span><span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="{{pathFor 'main'}}"> <img class="img-responsive" src="pp.jpg" alt="COC" style="height:100%"> </a>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li>
+								<a href="{{pathFor 'main'}}">Profile</a>
+							</li>
+							<li>
+								<a href="{{pathFor 'clan'}}">Clan</a>
+							</li>
+							<li>
+								<a href="{{pathFor 'war'}}">War</a>
+							</li>
+
+						</ul>
+						<!-- RIght top bar -->
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a class="logout" href="#">Log Out</a>
+							</li>
+						</ul>
+					</div>
+
+				</nav>
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+						<blockquote>
+
+							{{#if currentUser}}
+							<p>
+								{{email}} is logged in
+							</p>
+							{{/if}}
+
+							<p>
+								We take our clan very seriously. Make sure you have read the terms and conditions before you join our
+							</p>
+							<p>
+								clan. We are very serious about the people who join us.
+							</p>
+							<small>Namma Bangalore COC</small>
+						</blockquote>
+						<div class="row clearfix">
+							<form role="form">
+								<div class="col-md-6 column">
+									<div class="form-group">
+										<label for="membername">Member Name</label>
+										<input type="text" class="form-control" id="memberName" value = "{{memberName}}"/>
+									</div>
+									<div class="form-group">
+										<label for="clanname">Clan Name</label>
+										<input type="text" class="form-control" id="clanName" value = "{{clanName}}"/>
+									</div>
+									<div class="form-group">
+										<label for="phone">Phone Number</label>
+										<input type="tel" class="form-control" id="phone" value="{{phone}}"/>
+									</div>
+									<div class="form-group">
+										<label for="phone">Email</label>
+										<input type="email" class="form-control" id="email" value="{{email}}" />
+									</div>
+									<div class="row clearfix">
+										<div class="col-md-6 column">
 											<label for="form-control"> Trophy Count </label>
 											<select class="form-control" id="trophyCount">
 												{{#each trophyCountRange}}
-													<option {{trophyCount range}}>
-														{{range}}
-													</option>
-												{{/ each}}											
+												<option {{trophyCount range}}> {{range}} </option>
+												{{/ each}}
 											</select>
-									</div>
-									<div class="col-md-6 column">
-										<label for="form-control"> XP </label>
+										</div>
+										<div class="col-md-6 column">
+											<label for="form-control"> XP </label>
 											<select class="form-control" id="xp">
 												{{#each xpRange}}
-													<option {{xp range}}>
-														{{range}}
-													</option>
-												{{/ each}}										
+												<option {{xp range}}> {{range}} </option>
+												{{/ each}}
 											</select>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-md-6 column">
-								<label>Troops</label>
-								<div class="form-group">																			
+								<div class="col-md-6 column">
+									<label> Troop Level </label>
+									<div class="tabbable" id="tabs-197242">
+										<ul class="nav nav-tabs">
+											<li class="active">	<a href="#elixirTroops" data-toggle="tab">Elixir Troops</a>
+											</li>
+											<li >	<a href="#dETroops" data-toggle="tab">Dark Elixir Troops</a>
+											</li>
+											<li >	<a href="#spells" data-toggle="tab">Spells</a>
+											</li>
+										</ul>
+										<div class="tab-content" style="padding-top: 20px">
+											<div class="tab-pane active" id="elixirTroops">
+												<div class="form-group">
+													{{#each troops.units}}
+													<div class="input-group">
+														<strong>{{unit}}</strong>
+														<span class="input-group-addon"> {{#each troops.indices}} <label class="radio-inline">
+																<input type="radio" name="{{../unit}}" value="{{index}}" checked="{{troopLvl ../unit index}}">
+																{{index}} </label> {{/ each}} </span>
+													</div><!-- /input-group -->
+													{{/each}}
+												</div>
+											</div>
+											<div class="tab-pane" id="dETroops">
+												<div class="form-group">
+													{{#each troops.darkUnits}}
+													<div class="input-group">
+														<strong>{{unit}}</strong>
+														<span class="input-group-addon"> {{#each troops.indices}} <label class="radio-inline">
+																<input type="radio" name="{{../unit}}" value="{{index}}" checked="{{troopLvl ../unit index}}">
+																{{index}} </label> {{/ each}} </span>
+													</div><!-- /input-group -->
+													{{/each}}
+
+												</div>
+											</div>
+											<div class="tab-pane" id="spells">
+												<div class="form-group">
+													{{#each troops.spells}}
+													<div class="input-group">
+														<strong>{{unit}}</strong>
+														<span class="input-group-addon"> {{#each troops.indices}} <label class="radio-inline">
+																<input type="radio" name="{{../unit}}" value="{{index}}" checked="{{troopLvl ../unit index}}">
+																{{index}} </label> {{/ each}} </span>
+													</div><!-- /input-group -->
+													{{/each}}
+
+												</div>
+											</div>
+										</div>
+									</div>
 									
-									{{#each troops.units}}
-										<div class="input-group">
-										<strong>{{unit}}</strong>
-										<span class="input-group-addon">											
-										{{#each troops.indices}}
-											<label class="radio-inline">
-												<input type="radio" name="{{../unit}}" value="{{index}}" checked="{{troopLvl ../unit index}}">{{index}}
-											</label>
-										{{/ each}}
-										</span>
-										</div><!-- /input-group -->
-									{{/each}}									
-									
+									<input type="submit" class="btn btn-default" id="profilesubmit" value="Submit" >
 								</div>
-								<input type="submit" class="btn btn-default" id="profilesubmit" value="Submit" >								
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-	
+
 </template>
