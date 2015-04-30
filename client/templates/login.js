@@ -16,8 +16,8 @@ if (Meteor.isClient) {
 				}
 				else
 				{
-					toastr.success("logging in");
-					toastr.options = {"timeOut" : "1000"};
+					toastr.success("Logging in");
+					toastr.options = {"timeOut" : "500"};
 					return true;
 				}
 			}
