@@ -105,8 +105,9 @@ if(Meteor.isClient) {
 			var troopLvl = {};
 			for(var i in troops.units) {
 				var unit = (troops.units[i].unit);
-				if(t.find("input:radio[name='" + unit + "']:checked")) {
-					troopLvl[unit] = t.find("input:radio[name='" + unit + "']:checked").value;
+				var storedLvl = t.find("input:radio[name='" + unit + "']:checked"); 
+				if(storedLvl) {
+					troopLvl[unit] = storedLvl.value;
 				}						
 			}
 			var member = {
