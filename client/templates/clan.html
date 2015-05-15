@@ -32,30 +32,28 @@
 							<a class="logout" href="#">Log Out</a>
 						</li>						
 					</ul>
-				</div>
-				
-			</nav>
-			
+				</div>				
+			</nav>			
 		</div>
 		
 	</div>
 	<div class="col-md-4 column">
 		<label> Members </label>	
-		<div class="list-group">
+		<ul class="nav nav-bar">
 			{{#each emails}}
-				<a class="list-group-item" href="#">
-					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+				<li>
+				<button class="list-group-item" id="{{address}}">
 					{{address}}
-				</a>
-			{{/ each}} 
-		</div>
+				</button>
+				</li>
+			{{/each}} 
+		</ul>
 	</div>
-	<div class="col-md-4 column">
-		
-	</div>
-	<div class="col-md-4 column">
-		
-	</div>
+	<div class="col-md-8 column">
+		<p> Name: {{name}}</p>
+		<p> Email: </p>
+		<p> Clan Name: </p>
+	</div>	
 
 </div>
 </template>
