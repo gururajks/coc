@@ -14,7 +14,6 @@ if(Meteor.isClient) {
 		name : function() {
 			console.log(Session.get('clickedItem'));
 			var user = Meteor.users.find({ emails : { $elemMatch : { address : Session.get('clickedItem')}}});
-			console.log(user);
 			return user.email;
 		}
 	});	
