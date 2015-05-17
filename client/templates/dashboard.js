@@ -132,6 +132,7 @@ if(Meteor.isClient) {
 					troopLvl[unit] = storedLvl.value;
 				}						
 			}
+			
 			var member = {
 				memberName 	 : 	memberName,
 				clanName 	 : 	clanName,
@@ -142,17 +143,17 @@ if(Meteor.isClient) {
 				troopLvl	 :  troopLvl		
 			};
 			
-			console.log(member);
 			Meteor.call("updateProfile", member, function(err, writeResults) {
-					if(writeResults == 1)
-					{
-						toastr.success("Profile updated", "Success");
-					}
-					else
-					{
-						toastr.error("Profile failed to update", "Error");
-					}		
+				if(writeResults == 1)
+				{
+					toastr.success("Profile updated", "Success");
+				}
+				else
+				{
+					toastr.error("Profile failed to update", "Error");
+				}		
 			});
+			
 		}
 		
 	});

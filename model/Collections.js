@@ -1,4 +1,4 @@
-
+War = new Mongo.Collection("war");
 
 Meteor.methods({
 	insertProfile : function(email) {
@@ -20,6 +20,13 @@ Meteor.methods({
 							  }
 				}
 			});
+		return writeResults;
+	},
+	updateWarData : function(warData) {
+		var writeResults = War.insert({
+			warData   : warData,
+			createdAt : new Date()
+		});
 		return writeResults;
 	}
 });

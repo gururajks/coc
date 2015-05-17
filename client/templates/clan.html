@@ -1,3 +1,12 @@
+<template name="clanPage">
+	{{#if currentUser}}
+		{{> clan}}
+	{{else}}
+		{{> login}}
+	{{/ if}}
+	
+</template>
+
 <template name="clan">
 <div class="container">
 	<div class="row clearfix">
@@ -20,10 +29,10 @@
 							<a href="{{pathFor 'main'}}">Profile</a>
 						</li>
 						<li>
-							<a href="{{pathFor 'clan'}}">Clan</a>
+							<a href="{{pathFor 'clanPage'}}">Clan</a>
 						</li>
 						<li>
-							<a href="{{pathFor 'war'}}">War</a>
+							<a href="{{pathFor 'warPage'}}">War</a>
 						</li>
 					</ul>
 					<!-- RIght top bar -->
@@ -37,23 +46,29 @@
 		</div>
 		
 	</div>
-	<div class="col-md-4 column">
-		<label> Members </label>	
-		<ul class="nav nav-bar">
-			{{#each emails}}
-				<li>
-				<button class="list-group-item" id="{{address}}">
-					{{address}}
-				</button>
-				</li>
-			{{/each}} 
-		</ul>
+	<div class="row clearfix">
+		<div class="col-md-4 column">
+			<ul class="nav nav-bar">
+				{{#each emails}}
+					<li>
+					<button class="list-group-item memberButton btn-block" id="{{address}}">
+						{{address}}
+					</button>
+					</li>
+				{{/each}} 
+			</ul>
+		</div>
+		<div class="col-md-8 column">
+			<p> Name: {{name}}</p>
+			<p> Email: {{cEmail}}</p>
+			<p> Clan Name: {{cName}}</p>
+			<p> Phone No: {{phone}}</p>
+			<p> Trophy Count: {{trophyCount}}</p>
+			<p> XP Level: {{xp}}</p>
+						
+		
+		</div>
 	</div>
-	<div class="col-md-8 column">
-		<p> Name: {{name}}</p>
-		<p> Email: </p>
-		<p> Clan Name: </p>
-	</div>	
 
 </div>
 </template>
