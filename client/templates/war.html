@@ -69,11 +69,30 @@
 					</form>					
 				</div>
 				<div class="col-md-8 column">
-					<ul>
-					{{#each wars}}
-						<li>Namma Bangalore : {{warData.ourScore}}      {{warData.opponentName}} : {{warData.opponentScore}} </li>
-					{{/each}}
-					</ul> 
+					<table class="table">
+						<thead>
+							<th>Our Clan</th>
+							<th>Our Score</th>
+							<th>Opponent</th>
+							<th>Opponent Score</th>
+							<th>Won</th>
+						</thead>
+						<tbody>							
+							{{#each wars}}
+								<tr>
+									<td>Namma Bangalore</td>
+									<td> {{warData.ourScore}} </td>
+									<td>{{warData.opponentName}} </td>
+									<td> {{warData.opponentScore}} </td> 
+									{{#if won warData.ourScore warData.opponentScore}}
+										<td><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></td>
+									{{else}}
+										<td><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></td>
+									{{/if}}
+								</tr>
+							{{/each}}
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>

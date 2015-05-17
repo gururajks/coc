@@ -88,7 +88,13 @@ if(Meteor.isClient) {
 			{range : "1600-1799"},
 			{range : "1800-1999"},
 			{range : "2000-2199"},
-			{range : "2200-2399"}
+			{range : "2200-2399"},
+			{range : "2400-2599"},
+			{range : "2600-2799"},
+			{range : "2800-2999"},
+			{range : "3000-3199"},
+			{range : "3200-3399"},
+			{range : "3400-3599"}
 		],
 		troops : function() {
 			return troops;			

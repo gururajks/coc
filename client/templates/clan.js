@@ -12,7 +12,13 @@ if(Meteor.isClient) {
 		},
 		
 		cEmail : function() {
-			return Session.get('clickedItem');	
+			if(Session.get('clickedItem'))
+			{
+				return Session.get('clickedItem');	
+			}
+			else 
+				return Meteor.user().emails[0].address;
+				
 		},
 		
 		name : function() {

@@ -2,13 +2,21 @@ if(Meteor.isClient) {
 	Meteor.subscribe("war");
 	Template.war.helpers({
 		wars : function() {
-			/*var war = War.find({}, {warData : 1 } , { sort : {createdAt: -1}});
-			
-			war.forEach(function(warData) {
-				console.log(waData.opponentName);
-			});*/
 			return War.find({}, {warData : 1 , _id : 0} , { sort : {createdAt: -1}});
+		},
+		won : function(ourScore , opponentScore) {			
+			if(ourScore > opponentScore) {
+				console.log(ourScore);
+				console.log(opponentScore);
+				return true;
+			} 
+			else {
+				console.log("false:" + ourScore); 
+				console.log(opponentScore);
+				return false;
+			}
 		}
+		
 	});
 	
 	Template.war.events({
