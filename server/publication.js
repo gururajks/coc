@@ -6,4 +6,7 @@ if(Meteor.isServer) {
 	Meteor.publish('war' , function() {
 		return War.find({});
 	});
+	Meteor.publish('booking' , function() {
+		return Booking.find({});
+	});
 }

@@ -49,51 +49,120 @@
 		</div>
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<div class="col-md-4 column">
-					<form class="form-horizontal" role="form">
-						<div class="form-group">
-							 <label for="opponentName" >Opponent</label>
-							<input type="text" class="form-control" id="opponentName" />							
+				<div class="tabbable" id="tabs-war">
+					<ul class="nav nav-tabs">
+						<li class="active">	<a href="#war" data-toggle="tab">War</a>
+						</li>
+						<li >	<a href="#booking" data-toggle="tab">Booking</a>
+						</li>
+						<li >	<a href="#stats" data-toggle="tab">Statistics</a>
+						</li>
+					</ul>
+					<div class="tab-content" >
+						<div class="tab-pane active" id="war">						
+							<div class="col-md-4 column">
+								<form class="form-horizontal warForm" role="form">
+									<div class="form-group">
+										 <label for="opponentName" >Opponent</label>
+										<input type="text" class="form-control" id="opponentName" />							
+									</div>
+									<div class="form-group">
+										 <label for="oScore" >Our Score</label>							
+										<input type="number" min = "0" class="form-control" id="ourScore" />							
+									</div>
+									<div class="form-group">
+										 <label for="oppScore" >Opponent Score</label>							
+										<input type="number" min = "0" class="form-control" id="opponentScore" />							
+									</div>
+									<div class="form-group">
+										 <button type="submit" class="btn btn-default warButton">Submit</button>							
+									</div>
+								</form>					
+							</div>
+							<div class="col-md-8 column">
+								<table class="table">
+									<thead>
+										<th>Our Clan</th>
+										<th>Our Score</th>
+										<th>Opponent</th>
+										<th>Opponent Score</th>
+										<th>Won</th>
+									</thead>
+									<tbody>							
+										{{#each wars}}
+											<tr>
+												<td>Namma Bangalore</td>
+												<td> {{warData.ourScore}} </td>
+												<td>{{warData.opponentName}} </td>
+												<td> {{warData.opponentScore}} </td> 
+												{{#if won warData.ourScore warData.opponentScore}}
+													<td><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></td>
+												{{else}}
+													<td><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></td>
+												{{/if}}
+											</tr>
+										{{/each}}
+									</tbody>
+								</table>
+							</div>
 						</div>
-						<div class="form-group">
-							 <label for="oScore" >Our Score</label>							
-							<input type="number" min = "0" class="form-control" id="ourScore" />							
+						<div class="tab-pane" id="booking">
+							<div class="col-md-4 column">
+								<form class="form-horizontal bookingForm" role="form">
+									<div class="form-group">
+										 <label for="opponentBaseName" >Opponent Base Name</label>
+										<input type="text" class="form-control" id="opponentBaseName" />
+									</div>
+									<div class="form-group">
+										 <label for="opponentBaseNo" >Opponent Base No</label>
+										<input type="number" min = "0" class="form-control" id="opponentBaseNo" />
+									</div>
+									<div class="form-group">
+										 <button type="submit" class="btn btn-default bookingButton">Submit</button>
+									</div>
+								</form>
+							</div>
+							<div class="col-md-8 column">
+								<table class="table">
+									<thead>
+										<th>Clan Member</th>
+										<th>Opponent Base Name</th>
+										<th>Opponent Base No</th>
+										<th>Remove</th>
+									</thead>
+									<tbody>							
+										{{#each bookings}}
+											<tr>
+												<td>{{clanName}}</td>
+												<td>{{opponentBaseName}}</td>
+												<td>{{opponentBaseNo}}</td>
+												<td>
+													{{#if remove clanName}}
+														<button class="delete">
+															<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+														</button>
+													{{else}}
+													
+													{{/if}}
+												</td>
+											</tr>
+										{{/each}}
+									</tbody>
+								</table>
+							</div>
 						</div>
-						<div class="form-group">
-							 <label for="oppScore" >Opponent Score</label>							
-							<input type="number" min = "0" class="form-control" id="opponentScore" />							
+						<div class="tab-pane" id="stats">
+							<div class="jumbotron">
+								<h1>
+									COMING SOON
+								</h1>
+								<p>
+									Under Development. If you want to help, Contact Guru
+								</p>
+							</div>	
 						</div>
-						<div class="form-group">
-							 <button type="submit" class="btn btn-default">Submit</button>							
-						</div>
-					</form>					
-				</div>
-				<div class="col-md-8 column">
-					<table class="table">
-						<thead>
-							<th>Our Clan</th>
-							<th>Our Score</th>
-							<th>Opponent</th>
-							<th>Opponent Score</th>
-							<th>Won</th>
-						</thead>
-						<tbody>							
-							{{#each wars}}
-								<tr>
-									<td>Namma Bangalore</td>
-									<td> {{warData.ourScore}} </td>
-									<td>{{warData.opponentName}} </td>
-									<td> {{warData.opponentScore}} </td> 
-									{{#if won warData.ourScore warData.opponentScore}}
-										<td><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></td>
-									{{else}}
-										<td><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></td>
-									{{/if}}
-								</tr>
-							{{/each}}
-						</tbody>
-					</table>
-				</div>
+					</div>
+				</div>			
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,7 @@
 War = new Mongo.Collection("war");
 
+Booking = new Mongo.Collection("booking");
+
 Meteor.methods({
 	insertProfile : function(email) {
 		
@@ -26,6 +28,16 @@ Meteor.methods({
 		var writeResults = War.insert({
 			warData   : warData,
 			createdAt : new Date()
+		});
+		return writeResults;
+	},
+	updateBookingData : function(clanName, opponentBaseName, opponentBaseNo, opponentName) {
+		var writeResults = Booking.insert({
+			clanName 				: clanName, 
+			opponentBaseName		: opponentBaseName,
+			opponentBaseNo			: opponentBaseNo,
+			opponentName			: opponentName,
+			createdAt				: new Date()
 		});
 		return writeResults;
 	}
