@@ -23,7 +23,20 @@ if(Meteor.isClient) {
 			}	
 			else 
 				false;
+		},
+		disableBookingSubmit : function() {
+			var cu_clanName = Meteor.user().profile.clanName;
+			var clanName = Meteor.user().profile.clanName;
+			var bookings = Booking.find({clanName : clanName});
+			var writeResults = bookings.count();			
+			if(writeResults > 0) {
+				return "disabled";
+			}		
+			else 
+				return "";
+			
 		}		
+		
 	});
 	
 	Template.war.events({
@@ -56,10 +69,10 @@ if(Meteor.isClient) {
 			var opponentBaseNo = t.find("#opponentBaseNo").value;
 			var clanName = Meteor.user().profile.clanName;
 			var opponentName = "";
-			Meteor.call("updateBookingData", clanName, opponentBaseName, opponentBaseNo, opponentName, function(err, writeResults) {				
-				if(writeResults == 0)
+			Meteor.call("updateBookingData", clanName, opponentBaseName, opponentBaseNo, opponentName, function(err, writeResults) {						
+				if(err)
 				{
-					toastr.error("Booking Data failed to update", "Error");
+					toastr.error("Booking failed. Your base might already be booked", "Error");
 				}		
 			});
 		},

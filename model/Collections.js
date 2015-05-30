@@ -31,7 +31,7 @@ Meteor.methods({
 		});
 		return writeResults;
 	},
-	updateBookingData : function(clanName, opponentBaseName, opponentBaseNo, opponentName) {
+	updateBookingData : function(clanName, opponentBaseName, opponentBaseNo, opponentName) {		
 		var writeResults = Booking.insert({
 			clanName 				: clanName, 
 			opponentBaseName		: opponentBaseName,
@@ -39,6 +39,12 @@ Meteor.methods({
 			opponentName			: opponentName,
 			createdAt				: new Date()
 		});
+		
 		return writeResults;
+	},
+	getBookingsCount : function() {
+		var clanName = Meteor.user().profile.clanName;
+		var bookings = Booking.find({clanName : clanName});
+		return bookings.count();
 	}
 });
